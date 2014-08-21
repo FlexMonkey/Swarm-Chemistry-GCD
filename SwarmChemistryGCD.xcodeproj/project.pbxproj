@@ -1,0 +1,412 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3E8F328819A67DA000CC7E7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F328719A67DA000CC7E7D /* AppDelegate.swift */; };
+		3E8F328A19A67DA000CC7E7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F328919A67DA000CC7E7D /* ViewController.swift */; };
+		3E8F328D19A67DA000CC7E7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8F328B19A67DA000CC7E7D /* Main.storyboard */; };
+		3E8F328F19A67DA000CC7E7D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E8F328E19A67DA000CC7E7D /* Images.xcassets */; };
+		3E8F329B19A67DA000CC7E7D /* SwarmChemistryGCDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F329A19A67DA000CC7E7D /* SwarmChemistryGCDTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3E8F329519A67DA000CC7E7D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E8F327A19A67DA000CC7E7D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E8F328119A67DA000CC7E7D;
+			remoteInfo = SwarmChemistryGCD;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3E8F328219A67DA000CC7E7D /* SwarmChemistryGCD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwarmChemistryGCD.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E8F328619A67DA000CC7E7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E8F328719A67DA000CC7E7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3E8F328919A67DA000CC7E7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3E8F328C19A67DA000CC7E7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3E8F328E19A67DA000CC7E7D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3E8F329419A67DA000CC7E7D /* SwarmChemistryGCDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwarmChemistryGCDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E8F329919A67DA000CC7E7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E8F329A19A67DA000CC7E7D /* SwarmChemistryGCDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwarmChemistryGCDTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3E8F327F19A67DA000CC7E7D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E8F329119A67DA000CC7E7D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3E8F327919A67DA000CC7E7D = {
+			isa = PBXGroup;
+			children = (
+				3E8F328419A67DA000CC7E7D /* SwarmChemistryGCD */,
+				3E8F329719A67DA000CC7E7D /* SwarmChemistryGCDTests */,
+				3E8F328319A67DA000CC7E7D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3E8F328319A67DA000CC7E7D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3E8F328219A67DA000CC7E7D /* SwarmChemistryGCD.app */,
+				3E8F329419A67DA000CC7E7D /* SwarmChemistryGCDTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3E8F328419A67DA000CC7E7D /* SwarmChemistryGCD */ = {
+			isa = PBXGroup;
+			children = (
+				3E8F328719A67DA000CC7E7D /* AppDelegate.swift */,
+				3E8F328919A67DA000CC7E7D /* ViewController.swift */,
+				3E8F328B19A67DA000CC7E7D /* Main.storyboard */,
+				3E8F328E19A67DA000CC7E7D /* Images.xcassets */,
+				3E8F328519A67DA000CC7E7D /* Supporting Files */,
+			);
+			path = SwarmChemistryGCD;
+			sourceTree = "<group>";
+		};
+		3E8F328519A67DA000CC7E7D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3E8F328619A67DA000CC7E7D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3E8F329719A67DA000CC7E7D /* SwarmChemistryGCDTests */ = {
+			isa = PBXGroup;
+			children = (
+				3E8F329A19A67DA000CC7E7D /* SwarmChemistryGCDTests.swift */,
+				3E8F329819A67DA000CC7E7D /* Supporting Files */,
+			);
+			path = SwarmChemistryGCDTests;
+			sourceTree = "<group>";
+		};
+		3E8F329819A67DA000CC7E7D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3E8F329919A67DA000CC7E7D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3E8F328119A67DA000CC7E7D /* SwarmChemistryGCD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E8F329E19A67DA000CC7E7D /* Build configuration list for PBXNativeTarget "SwarmChemistryGCD" */;
+			buildPhases = (
+				3E8F327E19A67DA000CC7E7D /* Sources */,
+				3E8F327F19A67DA000CC7E7D /* Frameworks */,
+				3E8F328019A67DA000CC7E7D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwarmChemistryGCD;
+			productName = SwarmChemistryGCD;
+			productReference = 3E8F328219A67DA000CC7E7D /* SwarmChemistryGCD.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3E8F329319A67DA000CC7E7D /* SwarmChemistryGCDTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E8F32A119A67DA000CC7E7D /* Build configuration list for PBXNativeTarget "SwarmChemistryGCDTests" */;
+			buildPhases = (
+				3E8F329019A67DA000CC7E7D /* Sources */,
+				3E8F329119A67DA000CC7E7D /* Frameworks */,
+				3E8F329219A67DA000CC7E7D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3E8F329619A67DA000CC7E7D /* PBXTargetDependency */,
+			);
+			name = SwarmChemistryGCDTests;
+			productName = SwarmChemistryGCDTests;
+			productReference = 3E8F329419A67DA000CC7E7D /* SwarmChemistryGCDTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3E8F327A19A67DA000CC7E7D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Simon Gladman";
+				TargetAttributes = {
+					3E8F328119A67DA000CC7E7D = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					3E8F329319A67DA000CC7E7D = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 3E8F328119A67DA000CC7E7D;
+					};
+				};
+			};
+			buildConfigurationList = 3E8F327D19A67DA000CC7E7D /* Build configuration list for PBXProject "SwarmChemistryGCD" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3E8F327919A67DA000CC7E7D;
+			productRefGroup = 3E8F328319A67DA000CC7E7D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3E8F328119A67DA000CC7E7D /* SwarmChemistryGCD */,
+				3E8F329319A67DA000CC7E7D /* SwarmChemistryGCDTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3E8F328019A67DA000CC7E7D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E8F328D19A67DA000CC7E7D /* Main.storyboard in Resources */,
+				3E8F328F19A67DA000CC7E7D /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E8F329219A67DA000CC7E7D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3E8F327E19A67DA000CC7E7D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E8F328A19A67DA000CC7E7D /* ViewController.swift in Sources */,
+				3E8F328819A67DA000CC7E7D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E8F329019A67DA000CC7E7D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E8F329B19A67DA000CC7E7D /* SwarmChemistryGCDTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3E8F329619A67DA000CC7E7D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3E8F328119A67DA000CC7E7D /* SwarmChemistryGCD */;
+			targetProxy = 3E8F329519A67DA000CC7E7D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3E8F328B19A67DA000CC7E7D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3E8F328C19A67DA000CC7E7D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3E8F329C19A67DA000CC7E7D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		3E8F329D19A67DA000CC7E7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3E8F329F19A67DA000CC7E7D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = SwarmChemistryGCD/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3E8F32A019A67DA000CC7E7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = SwarmChemistryGCD/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3E8F32A219A67DA000CC7E7D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SwarmChemistryGCDTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwarmChemistryGCD.app/SwarmChemistryGCD";
+			};
+			name = Debug;
+		};
+		3E8F32A319A67DA000CC7E7D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SwarmChemistryGCDTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwarmChemistryGCD.app/SwarmChemistryGCD";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3E8F327D19A67DA000CC7E7D /* Build configuration list for PBXProject "SwarmChemistryGCD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E8F329C19A67DA000CC7E7D /* Debug */,
+				3E8F329D19A67DA000CC7E7D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E8F329E19A67DA000CC7E7D /* Build configuration list for PBXNativeTarget "SwarmChemistryGCD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E8F329F19A67DA000CC7E7D /* Debug */,
+				3E8F32A019A67DA000CC7E7D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3E8F32A119A67DA000CC7E7D /* Build configuration list for PBXNativeTarget "SwarmChemistryGCDTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E8F32A219A67DA000CC7E7D /* Debug */,
+				3E8F32A319A67DA000CC7E7D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3E8F327A19A67DA000CC7E7D /* Project object */;
+}

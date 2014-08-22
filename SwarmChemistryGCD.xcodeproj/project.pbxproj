@@ -12,6 +12,10 @@
 		3E8F328D19A67DA000CC7E7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E8F328B19A67DA000CC7E7D /* Main.storyboard */; };
 		3E8F328F19A67DA000CC7E7D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E8F328E19A67DA000CC7E7D /* Images.xcassets */; };
 		3E8F329B19A67DA000CC7E7D /* SwarmChemistryGCDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F329A19A67DA000CC7E7D /* SwarmChemistryGCDTests.swift */; };
+		3E8F32A619A67EC400CC7E7D /* SwarmMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F32A519A67EC400CC7E7D /* SwarmMember.swift */; };
+		3E8F32A819A67EE900CC7E7D /* SwarmGenome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F32A719A67EE900CC7E7D /* SwarmGenome.swift */; };
+		3E8F32AC19A680E400CC7E7D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F32AB19A680E400CC7E7D /* Constants.swift */; };
+		3E8F32AF19A6819D00CC7E7D /* SwarmChemistrySolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F32AE19A6819D00CC7E7D /* SwarmChemistrySolver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,10 @@
 		3E8F329419A67DA000CC7E7D /* SwarmChemistryGCDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwarmChemistryGCDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E8F329919A67DA000CC7E7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E8F329A19A67DA000CC7E7D /* SwarmChemistryGCDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwarmChemistryGCDTests.swift; sourceTree = "<group>"; };
+		3E8F32A519A67EC400CC7E7D /* SwarmMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwarmMember.swift; sourceTree = "<group>"; };
+		3E8F32A719A67EE900CC7E7D /* SwarmGenome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwarmGenome.swift; sourceTree = "<group>"; };
+		3E8F32AB19A680E400CC7E7D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3E8F32AE19A6819D00CC7E7D /* SwarmChemistrySolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwarmChemistrySolver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,8 @@
 		3E8F328419A67DA000CC7E7D /* SwarmChemistryGCD */ = {
 			isa = PBXGroup;
 			children = (
+				3E8F32AD19A6814E00CC7E7D /* constants */,
+				3E8F32A419A67EA500CC7E7D /* swarmChemistry */,
 				3E8F328719A67DA000CC7E7D /* AppDelegate.swift */,
 				3E8F328919A67DA000CC7E7D /* ViewController.swift */,
 				3E8F328B19A67DA000CC7E7D /* Main.storyboard */,
@@ -107,6 +117,24 @@
 				3E8F329919A67DA000CC7E7D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3E8F32A419A67EA500CC7E7D /* swarmChemistry */ = {
+			isa = PBXGroup;
+			children = (
+				3E8F32A519A67EC400CC7E7D /* SwarmMember.swift */,
+				3E8F32A719A67EE900CC7E7D /* SwarmGenome.swift */,
+				3E8F32AE19A6819D00CC7E7D /* SwarmChemistrySolver.swift */,
+			);
+			name = swarmChemistry;
+			sourceTree = "<group>";
+		};
+		3E8F32AD19A6814E00CC7E7D /* constants */ = {
+			isa = PBXGroup;
+			children = (
+				3E8F32AB19A680E400CC7E7D /* Constants.swift */,
+			);
+			name = constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,7 +236,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E8F32AC19A680E400CC7E7D /* Constants.swift in Sources */,
 				3E8F328A19A67DA000CC7E7D /* ViewController.swift in Sources */,
+				3E8F32A819A67EE900CC7E7D /* SwarmGenome.swift in Sources */,
+				3E8F32A619A67EC400CC7E7D /* SwarmMember.swift in Sources */,
+				3E8F32AF19A6819D00CC7E7D /* SwarmChemistrySolver.swift in Sources */,
 				3E8F328819A67DA000CC7E7D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

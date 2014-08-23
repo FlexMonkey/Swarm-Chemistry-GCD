@@ -44,19 +44,19 @@ class ViewController: UIViewController
         Async.background
         {
             self.swarmMembers = solveSwarmChemistry(self.swarmMembers);
-            
-            Async.background
-            {
-                self.image = renderSwarmChemistry(self.swarmMembers);
-            }
-            .main
-            {
-                self.uiImageView.image = self.image;
-            }
         }
         .main
         {
             self.dispatchSolve();
+            
+            Async.background
+                {
+                    self.image = renderSwarmChemistry(self.swarmMembers);
+                }
+                .main
+                {
+                    self.uiImageView.image = self.image;
+            }
         }
     }
     

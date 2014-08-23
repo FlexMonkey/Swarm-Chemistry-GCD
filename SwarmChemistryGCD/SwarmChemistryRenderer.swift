@@ -42,8 +42,6 @@ func renderSwarmChemistry (swarmMembers : [SwarmMember]) -> UIImage
     {
         let index : Int = Int(swarmMember.y * Constants.WIDTH + swarmMember.x);
         
-        println("length \(Constants.IMAGE_LENGTH)  index \(index)")
-        
         if index < Constants.IMAGE_LENGTH
         {
             let colorRef = CGColorGetComponents(swarmMember.genome.color.CGColor);

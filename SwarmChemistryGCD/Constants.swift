@@ -20,7 +20,7 @@ struct Constants
     
     static let WIDTH : Double = 1024.0;
     static let HEIGHT : Double = 768.0;
-    static let IMAGE_LENGTH = 1024 * 768; 
     
+    static let IMAGE_LENGTH = 1024 * 768;
     static let COUNT = 1024; 
 }

@@ -26,18 +26,18 @@ class ViewController: UIViewController
         {
             let genome : SwarmGenome = genomes[i % 4];
             var swarmMember : SwarmMember = SwarmMember(genome: genome);
-           
+            
             swarmMember.x = Double(Int(rand()) % Int(Constants.WIDTH));
             swarmMember.y = Double(Int(rand()) % Int(Constants.HEIGHT));
             
-            swarmMembers.append(swarmMember); 
+            swarmMembers.append(swarmMember);
         }
         
         let image = renderSwarm();
         
         uiImageView.image = image;
     }
-
+    
     // rendering code....
     
     struct PixelData {
@@ -69,12 +69,11 @@ class ViewController: UIViewController
         for swarmMember in swarmMembers
         {
             let index : Int = Int(swarmMember.y * Constants.WIDTH + swarmMember.x);
-     
+            let colorRef = CGColorGetComponents(swarmMember.genome.color.CGColor);
             
-            
-            pixelArray[index].r = 255 // UInt8(255 * swarmMember.genome.color.CIColor.red());
-            pixelArray[index].g = 255 //UInt8(255 * swarmMember.genome.color.CIColor.green());
-            pixelArray[index].b = 255 // UInt8(255 * swarmMember.genome.color.CIColor.blue());
+            pixelArray[index].r = UInt8(255 * colorRef[0]);
+            pixelArray[index].g = UInt8(255 * colorRef[1]);
+            pixelArray[index].b = UInt8(255 * colorRef[2]);
         }
         
         let outputImage = imageFromARGB32Bitmap(pixelArray, width: UInt(Constants.WIDTH), height: UInt(Constants.HEIGHT))
@@ -86,7 +85,7 @@ class ViewController: UIViewController
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 

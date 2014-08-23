@@ -16,6 +16,8 @@
 		3E8F32A819A67EE900CC7E7D /* SwarmGenome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F32A719A67EE900CC7E7D /* SwarmGenome.swift */; };
 		3E8F32AC19A680E400CC7E7D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F32AB19A680E400CC7E7D /* Constants.swift */; };
 		3E8F32AF19A6819D00CC7E7D /* SwarmChemistrySolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F32AE19A6819D00CC7E7D /* SwarmChemistrySolver.swift */; };
+		BEB7BCF819A8AE8100CE4E77 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7BCF719A8AE8100CE4E77 /* Async.swift */; };
+		BEB7BCFA19A8B1AC00CE4E77 /* SwarmChemistryRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7BCF919A8B1AC00CE4E77 /* SwarmChemistryRenderer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		3E8F32A719A67EE900CC7E7D /* SwarmGenome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwarmGenome.swift; sourceTree = "<group>"; };
 		3E8F32AB19A680E400CC7E7D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3E8F32AE19A6819D00CC7E7D /* SwarmChemistrySolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwarmChemistrySolver.swift; sourceTree = "<group>"; };
+		BEB7BCF719A8AE8100CE4E77 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
+		BEB7BCF919A8B1AC00CE4E77 /* SwarmChemistryRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwarmChemistryRenderer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 		3E8F328419A67DA000CC7E7D /* SwarmChemistryGCD */ = {
 			isa = PBXGroup;
 			children = (
+				BEB7BCF619A8AE4D00CE4E77 /* async */,
 				3E8F32AD19A6814E00CC7E7D /* constants */,
 				3E8F32A419A67EA500CC7E7D /* swarmChemistry */,
 				3E8F328719A67DA000CC7E7D /* AppDelegate.swift */,
@@ -125,6 +130,7 @@
 				3E8F32A519A67EC400CC7E7D /* SwarmMember.swift */,
 				3E8F32A719A67EE900CC7E7D /* SwarmGenome.swift */,
 				3E8F32AE19A6819D00CC7E7D /* SwarmChemistrySolver.swift */,
+				BEB7BCF919A8B1AC00CE4E77 /* SwarmChemistryRenderer.swift */,
 			);
 			name = swarmChemistry;
 			sourceTree = "<group>";
@@ -135,6 +141,14 @@
 				3E8F32AB19A680E400CC7E7D /* Constants.swift */,
 			);
 			name = constants;
+			sourceTree = "<group>";
+		};
+		BEB7BCF619A8AE4D00CE4E77 /* async */ = {
+			isa = PBXGroup;
+			children = (
+				BEB7BCF719A8AE8100CE4E77 /* Async.swift */,
+			);
+			name = async;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,9 +250,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEB7BCFA19A8B1AC00CE4E77 /* SwarmChemistryRenderer.swift in Sources */,
 				3E8F32AC19A680E400CC7E7D /* Constants.swift in Sources */,
 				3E8F328A19A67DA000CC7E7D /* ViewController.swift in Sources */,
 				3E8F32A819A67EE900CC7E7D /* SwarmGenome.swift in Sources */,
+				BEB7BCF819A8AE8100CE4E77 /* Async.swift in Sources */,
 				3E8F32A619A67EC400CC7E7D /* SwarmMember.swift in Sources */,
 				3E8F32AF19A6819D00CC7E7D /* SwarmChemistrySolver.swift in Sources */,
 				3E8F328819A67DA000CC7E7D /* AppDelegate.swift in Sources */,
@@ -429,6 +445,7 @@
 				3E8F32A019A67DA000CC7E7D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3E8F32A119A67DA000CC7E7D /* Build configuration list for PBXNativeTarget "SwarmChemistryGCDTests" */ = {
 			isa = XCConfigurationList;
@@ -437,6 +454,7 @@
 				3E8F32A319A67DA000CC7E7D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

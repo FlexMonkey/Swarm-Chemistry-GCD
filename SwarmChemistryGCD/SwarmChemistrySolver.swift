@@ -18,7 +18,7 @@ func solveSwarmChemistry(swarmMembers : [SwarmMember]) -> [SwarmMember]
     
     for var i : Int = startIndex; i < n; i++
     {
-        var swarmMember : SwarmMember = returnArray[i] as SwarmMember;
+        var swarmMember : SwarmMember = swarmMembers[i] as SwarmMember;
         
         // swarm chemistry...
         
@@ -105,9 +105,8 @@ func solveSwarmChemistry(swarmMembers : [SwarmMember]) -> [SwarmMember]
         
         swarmMember.move();
         
+        returnArray[i] = swarmMember; 
     }
-    
-    
-    
+
     return returnArray;
 }

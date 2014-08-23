@@ -53,7 +53,6 @@ struct SwarmMember
         {
             x =  1;
         }
-        
     }
     
     mutating func accelerate(ax : Double, ay : Double, maxMove : Double)

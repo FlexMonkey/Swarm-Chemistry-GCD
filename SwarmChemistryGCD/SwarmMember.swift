@@ -38,24 +38,24 @@ struct SwarmMember
         
         if y < 0
         {
-            y = Constants.HEIGHT;
+            y = 0;
         }
         else if y > Constants.HEIGHT
         {
-            y = 1;
+            y = Constants.HEIGHT;
         }
         
         if x < 0
         {
-            x = Constants.WIDTH
+            x = 0
         }
         else if x > Constants.WIDTH
         {
-            x =  1;
+            x =  Constants.WIDTH;
         }
     }
     
-    mutating func accelerate(ax : Double, ay : Double, maxMove : Double)
+    mutating func accelerate(#ax : Double, ay : Double, maxMove : Double)
     {
         dx2 += ax;
         dy2 += ay;

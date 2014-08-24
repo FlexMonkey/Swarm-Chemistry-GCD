@@ -31,9 +31,9 @@ func solveSwarmChemistry(swarmMembers : [SwarmMember]) -> [SwarmMember]
         var tempAx : Double = 0;
         var tempAy : Double = 0;
         
-        for tmp in swarmMembers
+        for var j : Int = 0; j < n; j++
         {
-            var candidateNeighbour = tmp as SwarmMember;
+            var candidateNeighbour = swarmMembers[j];
             
             let distance = sqrt((swarmMember.x - candidateNeighbour.x) * (swarmMember.x - candidateNeighbour.x)) + ((swarmMember.y - candidateNeighbour.y) * (swarmMember.y - candidateNeighbour.y));
             
@@ -49,8 +49,8 @@ func solveSwarmChemistry(swarmMembers : [SwarmMember]) -> [SwarmMember]
                 
                 neighbours.append(candidateNeighbour);
                 
-                localCentreX += Double(candidateNeighbour.x);
-                localCentreY += Double(candidateNeighbour.y);
+                localCentreX += candidateNeighbour.x;
+                localCentreY += candidateNeighbour.y;
                 localDx += candidateNeighbour.dx;
                 localDy += candidateNeighbour.dy;
             }
@@ -72,12 +72,12 @@ func solveSwarmChemistry(swarmMembers : [SwarmMember]) -> [SwarmMember]
         tempAy = tempAy + (localDy - swarmMember.dy) * swarmMember.genome.c2_alignment;
         
         
-        for tmp in neighbours
+        for neighbour in neighbours
         {
-            let neighbour = tmp as SwarmMember;
+            var foo = neighbour.distance * swarmMember.genome.c3_seperation
             
-            tempAx = tempAx + Double(swarmMember.x - neighbour.x) / neighbour.distance * swarmMember.genome.c3_seperation;
-            tempAy = tempAy + Double(swarmMember.y - neighbour.y) / neighbour.distance * swarmMember.genome.c3_seperation;
+            tempAx = tempAx + Double(swarmMember.x - neighbour.x) / foo;
+            tempAy = tempAy + Double(swarmMember.y - neighbour.y) / foo;
         }
         
         
@@ -89,7 +89,9 @@ func solveSwarmChemistry(swarmMembers : [SwarmMember]) -> [SwarmMember]
         
         
         
-        swarmMember.accelerate(tempAx, ay: tempAy, maxMove: swarmMember.genome.maximumSpeed);
+        swarmMember.accelerate(ax: tempAx,
+            ay: tempAy,
+            maxMove: swarmMember.genome.maximumSpeed);
         
         var distance = sqrt(swarmMember.dx2 * swarmMember.dx2 +  swarmMember.dy2 *  swarmMember.dy2);
         
@@ -98,9 +100,11 @@ func solveSwarmChemistry(swarmMembers : [SwarmMember]) -> [SwarmMember]
             distance = 0.001;
         }
         
+        let accelerateMultiplier = (swarmMember.genome.normalSpeed - distance) / distance * swarmMember.genome.c5_paceKeeping;
         
-        swarmMember.accelerate(swarmMember.dx2 * (swarmMember.genome.normalSpeed - distance) / distance * swarmMember.genome.c5_paceKeeping,
-            ay: swarmMember.dy2 * (swarmMember.genome.normalSpeed - distance) / distance * swarmMember.genome.c5_paceKeeping,
+        swarmMember.accelerate(
+            ax: swarmMember.dx2 * accelerateMultiplier,
+            ay: swarmMember.dy2 * accelerateMultiplier,
             maxMove: swarmMember.genome.maximumSpeed);
         
         swarmMember.move();

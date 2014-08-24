@@ -31,7 +31,7 @@ private func imageFromARGB32Bitmap(pixels:[PixelData], width:UInt, height:UInt)-
     let providerRef = CGDataProviderCreateWithCFData(NSData(bytes: &data, length: data.count * sizeof(PixelData)))
     
     let cgim = CGImageCreate(width, height, bitsPerComponent, bitsPerPixel, width * UInt(sizeof(PixelData)), rgbColorSpace,	bitmapInfo, providerRef, nil, true, kCGRenderingIntentDefault)
-    return UIImage(CGImage: cgim)
+    return UIImage(CGImage: cgim);
 }
 
 func renderSwarmChemistry (swarmMembers : [SwarmMember]) -> UIImage
@@ -40,15 +40,15 @@ func renderSwarmChemistry (swarmMembers : [SwarmMember]) -> UIImage
     
     for swarmMember in swarmMembers
     {
-        let index : Int = Int(swarmMember.y * Constants.WIDTH + swarmMember.x);
+        let pixelIndex : Int = Int(floor(swarmMember.x) * Constants.WIDTH + floor(swarmMember.y));
         
-        if index < Constants.IMAGE_LENGTH
+        if pixelIndex < Constants.IMAGE_LENGTH
         {
             let colorRef = CGColorGetComponents(swarmMember.genome.color.CGColor);
             
-            pixelArray[index].r = UInt8(255 * colorRef[0]);
-            pixelArray[index].g = UInt8(255 * colorRef[1]);
-            pixelArray[index].b = UInt8(255 * colorRef[2]);
+            pixelArray[pixelIndex].r = UInt8(255 * colorRef[0]);
+            pixelArray[pixelIndex].g = UInt8(255 * colorRef[1]);
+            pixelArray[pixelIndex].b = UInt8(255 * colorRef[2]);
         }
     }
     

@@ -79,8 +79,8 @@ func solveSwarmChemistry(swarmMembers :  NSMutableArray)
         
         if Double(rand() % 100) < (swarmMember.genome.c4_steering * 100.0)
         {
-            tempAx = tempAx + Double(rand() % 4) - 2.0;
-            tempAy = tempAy + Double(rand() % 4) - 2.0;
+            tempAx = tempAx + Double(rand() % 4) - 1.5;
+            tempAy = tempAy + Double(rand() % 4) - 1.5;
         }
         
         swarmMember.accelerate(ax: tempAx,
@@ -89,9 +89,9 @@ func solveSwarmChemistry(swarmMembers :  NSMutableArray)
         
         var distance = sqrt(swarmMember.dx2 * swarmMember.dx2 +  swarmMember.dy2 *  swarmMember.dy2);
         
-        if distance < 0.00001
+        if distance < 0.001
         {
-            distance = 0.00001;
+            distance = 0.001;
         }
         
         let accelerateMultiplier = (swarmMember.genome.normalSpeed - distance) / distance * swarmMember.genome.c5_paceKeeping;

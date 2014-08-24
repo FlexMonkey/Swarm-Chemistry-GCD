@@ -47,8 +47,20 @@ class ViewController: UIViewController
         }
         .main
         {
-            self.uiImageView.image = renderSwarmChemistry(self.swarmMembers);
+            self.dispatchRender();
             self.dispatchSolve();
+        }
+    }
+    
+    func dispatchRender()
+    {
+        Async.background
+        {
+            self.image = renderSwarmChemistry(self.swarmMembers);
+        }
+        .main
+        {
+            self.uiImageView.image = self.image;
         }
     }
     

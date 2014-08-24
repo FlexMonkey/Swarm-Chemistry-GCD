@@ -40,7 +40,7 @@ func renderSwarmChemistry (swarmMembers : [SwarmMember]) -> UIImage
     
     for swarmMember in swarmMembers
     {
-        let pixelIndex : Int = Int(floor(swarmMember.x) * Constants.WIDTH + floor(swarmMember.y));
+        let pixelIndex : Int = Int(round(swarmMember.x) * Constants.WIDTH + round(swarmMember.y));
         
         if pixelIndex < Constants.IMAGE_LENGTH
         {

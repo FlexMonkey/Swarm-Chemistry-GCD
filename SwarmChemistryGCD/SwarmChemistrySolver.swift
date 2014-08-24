@@ -40,11 +40,11 @@ func solveSwarmChemistry(swarmMembers : [SwarmMember]) -> [SwarmMember]
             
             if distance < swarmMember.genome.radius
             {
-                candidateNeighbour.distance = distance; //max,(distance, 0.001);
+                candidateNeighbour.distance = distance;
                 
-                if candidateNeighbour.distance < 0.0001
+                if candidateNeighbour.distance < 0.001
                 {
-                    candidateNeighbour.distance = 0.0001;
+                    candidateNeighbour.distance = 0.001;
                 }
                 
                 neighbours.append(candidateNeighbour);

@@ -31,24 +31,23 @@ func solveSwarmChemistry(swarmMembers :  NSMutableArray)
         {
             var candidateNeighbour = swarmMembers[j] as SwarmMember;
             
-            let distance = sqrt((swarmMember.x - candidateNeighbour.x) * (swarmMember.x - candidateNeighbour.x)) + ((swarmMember.y - candidateNeighbour.y) * (swarmMember.y - candidateNeighbour.y));
-            
+            let distance = hypot(swarmMember.x - candidateNeighbour.x, swarmMember.y - candidateNeighbour.y)
             
             if distance < swarmMember.genome.radius
             {
                 candidateNeighbour.distance = distance;
                 
-                if candidateNeighbour.distance < 0.001
+                if candidateNeighbour.distance < 0.0001
                 {
-                    candidateNeighbour.distance = 0.001;
+                    candidateNeighbour.distance = 0.0001
                 }
                 
                 neighbours.addObject(candidateNeighbour);
                 
-                localCentreX += candidateNeighbour.x;
-                localCentreY += candidateNeighbour.y;
-                localDx += candidateNeighbour.dx;
-                localDy += candidateNeighbour.dy;
+                localCentreX = localCentreX + candidateNeighbour.x;
+                localCentreY = localCentreY + candidateNeighbour.y;
+                localDx = localDx + candidateNeighbour.dx;
+                localDy = localDy + candidateNeighbour.dy;
             }
             
         }
@@ -84,17 +83,15 @@ func solveSwarmChemistry(swarmMembers :  NSMutableArray)
             tempAy = tempAy + Double(rand() % 4) - 2.0;
         }
         
-        
-        
         swarmMember.accelerate(ax: tempAx,
             ay: tempAy,
             maxMove: swarmMember.genome.maximumSpeed);
         
         var distance = sqrt(swarmMember.dx2 * swarmMember.dx2 +  swarmMember.dy2 *  swarmMember.dy2);
         
-        if distance < 0.001
+        if distance < 0.00001
         {
-            distance = 0.001;
+            distance = 0.00001;
         }
         
         let accelerateMultiplier = (swarmMember.genome.normalSpeed - distance) / distance * swarmMember.genome.c5_paceKeeping;
@@ -104,6 +101,12 @@ func solveSwarmChemistry(swarmMembers :  NSMutableArray)
             ay: swarmMember.dy2 * accelerateMultiplier,
             maxMove: swarmMember.genome.maximumSpeed);
         
+        
+    }
+    
+    for var i : Int = startIndex; i < n; i++
+    {
+        var swarmMember : SwarmMember = swarmMembers[i] as SwarmMember;
         swarmMember.move();
     }
 }

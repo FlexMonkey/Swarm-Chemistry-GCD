@@ -38,20 +38,20 @@ import Foundation
         
         if y < 0
         {
-            y = 0;
+            y = Constants.HEIGHT;
         }
         else if y > Constants.HEIGHT
         {
-            y = Constants.HEIGHT;
+            y = 0;
         }
         
         if x < 0
         {
-            x = 0
+            x = Constants.WIDTH
         }
         else if x > Constants.WIDTH
         {
-            x =  Constants.WIDTH;
+            x =  0;
         }
     }
     

@@ -15,7 +15,7 @@ class ViewController: UIViewController
 
     var image : UIImage?;
 
-    var swarmMembers = [SwarmMember]();
+    var swarmMembers = NSMutableArray(capacity: Constants.COUNT)
     
     @IBOutlet weak var uiImageView: UIImageView!
     
@@ -31,19 +31,17 @@ class ViewController: UIViewController
             swarmMember.x = Double(Int(rand()) % Int(Constants.WIDTH));
             swarmMember.y = Double(Int(rand()) % Int(Constants.HEIGHT));
             
-            swarmMembers.append(swarmMember);
+            swarmMembers.addObject(swarmMember);
         }
         
         dispatchSolve();
     }
     
-    // rendering code....
-    
     func dispatchSolve()
     {
         Async.background
         {
-            self.swarmMembers = solveSwarmChemistry(self.swarmMembers);
+            solveSwarmChemistry(self.swarmMembers);
         }
         .main
         {
@@ -63,12 +61,6 @@ class ViewController: UIViewController
             self.uiImageView.image = self.image;
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
 }
 

@@ -87,12 +87,7 @@ func solveSwarmChemistry(swarmMembers :  NSMutableArray)
             ay: tempAy,
             maxMove: swarmMember.genome.maximumSpeed);
         
-        var distance = sqrt(swarmMember.dx2 * swarmMember.dx2 +  swarmMember.dy2 *  swarmMember.dy2);
-        
-        if distance < 0.001
-        {
-            distance = 0.001;
-        }
+        let distance = max(sqrt(swarmMember.dx2 * swarmMember.dx2 +  swarmMember.dy2 *  swarmMember.dy2), 0.001);
         
         let accelerateMultiplier = (swarmMember.genome.normalSpeed - distance) / distance * swarmMember.genome.c5_paceKeeping;
         

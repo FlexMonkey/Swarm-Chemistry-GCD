@@ -19,7 +19,7 @@ public class SwarmGenome
     public var c1_cohesion : Double; // 1: 0 -> 5
     public var c2_alignment : Double; // 2: 0 -> 1
     public var c3_seperation : Double; // 3: 0 -> 100
-    public var c4_steering : Double; // 4: 0 -> 0.5
+    public var c4_steering : Double; // 4: 0 -> 1
     public var c5_paceKeeping : Double; // 5: 0 -> 1
     
     init(color : UIColor, radius : Double, c1_cohesion : Double, c2_alignment : Double, c3_seperation : Double, c4_steering : Double, c5_paceKeeping : Double)
@@ -94,7 +94,7 @@ public class SwarmGenome
             case 3:
                 returnObject = (0, 100);
             case 4:
-                returnObject = (0, 0.5);
+                returnObject = (0, 1);
             case 5:
                 returnObject = (0, 1);
             default:

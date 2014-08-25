@@ -88,6 +88,7 @@ func renderSwarmChemistry (swarmMembers : [SwarmMember]) -> UIImage
     }
     else
     {
+    
         let filter = CIFilter(name: "CIGaussianBlur");
         filter.setValue(coreImage, forKey: kCIInputImageKey);
         filter.setValue(0.5, forKey: "inputRadius");
@@ -100,5 +101,5 @@ func renderSwarmChemistry (swarmMembers : [SwarmMember]) -> UIImage
         
         return UIImage(CGImage: filteredImageRef);
     }
-*/
+    */
 }

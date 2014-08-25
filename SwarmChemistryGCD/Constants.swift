@@ -22,5 +22,5 @@ struct Constants
     static let HEIGHT : Double = 768 / 4;
     
     static let IMAGE_LENGTH = Int(WIDTH * HEIGHT);
-    static let COUNT = 1024;
+    static let COUNT = 800;
 }

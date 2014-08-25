@@ -20,6 +20,8 @@ class ViewController: UIViewController
     var swarmMembers = NSMutableArray(capacity: Constants.COUNT)
     
     @IBOutlet weak var uiImageView: UIImageView!
+    @IBOutlet var propertyButtonBar: UISegmentedControl!
+    @IBOutlet var propertyValueSlider: UISlider!
     
     override func viewDidLoad()
     {
@@ -35,6 +37,9 @@ class ViewController: UIViewController
             
             swarmMembers.addObject(swarmMember);
         }
+        
+        setPropertSliderMinMax();
+        setPropertySliderValue();
         
         dispatchSolve();
     }
@@ -64,5 +69,34 @@ class ViewController: UIViewController
         }
     }
     
+    func setGenomeValue()
+    {
+        genomes[selectedGenomeIndex].setPropertyValueByIndex(propertyValueSlider.value, propertyIndex: propertyButtonBar.selectedSegmentIndex);
+    }
+    
+    func setPropertySliderValue()
+    {
+        propertyValueSlider.value = genomes[selectedGenomeIndex].getPropertyValueByIndex(propertyButtonBar.selectedSegmentIndex);
+    }
+    
+    func setPropertSliderMinMax()
+    {
+        propertyValueSlider.minimumValue = SwarmGenome.getMinMaxForProperty(propertyButtonBar.selectedSegmentIndex).min;
+        
+        propertyValueSlider.maximumValue = SwarmGenome.getMinMaxForProperty(propertyButtonBar.selectedSegmentIndex).max;
+    }
+    
+    // event handlers
+    
+    @IBAction func propertyButtonBarChangeHandler(sender: AnyObject)
+    {
+        setPropertSliderMinMax();
+        setPropertySliderValue();
+    }
+    
+    @IBAction func propertySliderChangeHandler(sender: AnyObject)
+    {
+        setGenomeValue();
+    }
 }
 

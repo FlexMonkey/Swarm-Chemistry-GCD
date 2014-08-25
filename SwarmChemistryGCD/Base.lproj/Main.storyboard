@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
+        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -35,11 +36,42 @@
                                     </mask>
                                 </variation>
                             </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hWV-gJ-5dK">
+                                <rect key="frame" x="58" y="550" width="484" height="31"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="propertySliderChangeHandler:" destination="BYZ-38-t0r" eventType="valueChanged" id="dnG-mO-xAX"/>
+                                </connections>
+                            </slider>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CPt-Hn-QxE">
+                                <rect key="frame" x="60" y="512" width="480" height="29"/>
+                                <segments>
+                                    <segment title="Radius"/>
+                                    <segment title="Cohesion"/>
+                                    <segment title="Alignment"/>
+                                    <segment title="Seperation"/>
+                                    <segment title="Steering"/>
+                                    <segment title="Pace Keeping"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="propertyButtonBarChangeHandler:" destination="BYZ-38-t0r" eventType="valueChanged" id="jcX-Rv-Xv7"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <variation key="widthClass=regular"/>
+                        <constraints>
+                            <constraint firstItem="CPt-Hn-QxE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="3Z1-J3-q8F"/>
+                            <constraint firstItem="hWV-gJ-5dK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="44" id="8Qp-dY-LFg"/>
+                            <constraint firstItem="hWV-gJ-5dK" firstAttribute="top" secondItem="CPt-Hn-QxE" secondAttribute="bottom" constant="20" id="Mq4-Wg-Euy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hWV-gJ-5dK" secondAttribute="trailing" constant="44" id="Re0-Y3-Ge1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CPt-Hn-QxE" secondAttribute="trailing" constant="20" id="aO2-GJ-G5y"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hWV-gJ-5dK" secondAttribute="bottom" constant="20" id="wcN-Lw-8qE"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="propertyButtonBar" destination="CPt-Hn-QxE" id="6Z4-Ju-DMp"/>
+                        <outlet property="propertyValueSlider" destination="hWV-gJ-5dK" id="izU-X5-96k"/>
                         <outlet property="uiImageView" destination="6tJ-qd-Kci" id="gQN-8P-t06"/>
                     </connections>
                 </viewController>

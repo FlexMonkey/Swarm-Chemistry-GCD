@@ -5,6 +5,9 @@
 //  Created by Simon Gladman on 21/08/2014.
 //  Copyright (c) 2014 Simon Gladman. All rights reserved.
 //
+//  Swarm Chemistry based on work by Hiroki Sayama
+//  http://bingweb.binghamton.edu/~sayama/SwarmChemistry/
+//
 
 import Foundation
 

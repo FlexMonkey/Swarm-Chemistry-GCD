@@ -37,7 +37,7 @@ private func imageFromARGB32Bitmap(pixels:[PixelData], width:UInt, height:UInt)-
 
 var previousImage : CIImage?;
 
-func renderSwarmChemistry (swarmMembers : NSMutableArray) -> UIImage
+func renderSwarmChemistry (swarmMembers : [SwarmMember]) -> UIImage
 {
     var pixelArray = [PixelData](count: Constants.IMAGE_LENGTH, repeatedValue: PixelData(a: 255, r:0, g: 0, b: 0));
     
@@ -47,7 +47,7 @@ func renderSwarmChemistry (swarmMembers : NSMutableArray) -> UIImage
         
         if pixelIndex < Constants.IMAGE_LENGTH
         {
-            let colorRef = CGColorGetComponents((swarmMember as SwarmMember).genome.color.CGColor);
+            let colorRef = CGColorGetComponents(swarmMember.genome.color.CGColor);
             
             pixelArray[pixelIndex].r = UInt8(255 * colorRef[0]);
             pixelArray[pixelIndex].g = UInt8(255 * colorRef[1]);

@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc class SwarmMember
+struct SwarmMember
 {
     var genome : SwarmGenome;
     
@@ -20,15 +20,13 @@ import Foundation
     
     var dx2 : Double = 0.0;
     var dy2 : Double = 0.0;
-    
-    var distance : Double = 0.0;
-    
+
     init(genome : SwarmGenome)
     {
         self.genome = genome;
     }
 
-     func move()
+    mutating func move()
     {
         dx = dx2;
         dy = dy2;
@@ -55,7 +53,7 @@ import Foundation
         }
     }
     
-     func accelerate(#ax : Double, ay : Double, maxMove : Double)
+    mutating func accelerate(#ax : Double, ay : Double, maxMove : Double)
     {
         dx2 += ax;
         dy2 += ay;

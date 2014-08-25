@@ -17,7 +17,7 @@ class ViewController: UIViewController
 
     var image : UIImage?;
 
-    var swarmMembers = NSMutableArray(capacity: Constants.COUNT)
+    var swarmMembers = [SwarmMember]();
     
     @IBOutlet weak var uiImageView: UIImageView!
     @IBOutlet var propertyButtonBar: UISegmentedControl!
@@ -36,7 +36,7 @@ class ViewController: UIViewController
             swarmMember.x = Double(Int(rand()) % Int(Constants.WIDTH));
             swarmMember.y = Double(Int(rand()) % Int(Constants.HEIGHT));
             
-            swarmMembers.addObject(swarmMember);
+            swarmMembers.append(swarmMember);
         }
         
         setPropertSliderMinMax();
@@ -49,7 +49,7 @@ class ViewController: UIViewController
     {
         Async.background
         {
-            solveSwarmChemistry(self.swarmMembers);
+            self.swarmMembers = solveSwarmChemistry(self.swarmMembers);
         }
         .main
         {
@@ -92,7 +92,7 @@ class ViewController: UIViewController
     @IBAction func genomeSelectionButtonBarChangeHandler(sender: AnyObject)
     {
         selectedGenomeIndex = genomeSelectionButtonBar.selectedSegmentIndex;
-        setPropertySliderValue();
+        setPropertySliderValue()
     }
     
     @IBAction func propertyButtonBarChangeHandler(sender: AnyObject)

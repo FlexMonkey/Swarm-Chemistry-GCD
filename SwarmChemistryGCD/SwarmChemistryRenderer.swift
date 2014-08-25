@@ -35,6 +35,8 @@ private func imageFromARGB32Bitmap(pixels:[PixelData], width:UInt, height:UInt)-
     return UIImage(CGImage: cgim);
 }
 
+var previousImage : CIImage?;
+
 func renderSwarmChemistry (swarmMembers : NSMutableArray) -> UIImage
 {
     var pixelArray = [PixelData](count: Constants.IMAGE_LENGTH, repeatedValue: PixelData(a: 255, r:0, g: 0, b: 0));
@@ -56,4 +58,47 @@ func renderSwarmChemistry (swarmMembers : NSMutableArray) -> UIImage
     let outputImage = imageFromARGB32Bitmap(pixelArray, UInt(Constants.WIDTH), UInt(Constants.HEIGHT))
     
     return outputImage;
+    
+    /*
+    
+    // WIP - tinkering with blur filters and trails, too slow on A6 ipad
+    
+    let ciContext = CIContext(options: nil);
+    let coreImage = CIImage(image: outputImage);
+
+    if let tmp : CIImage = previousImage
+    {
+        let filter = CIFilter(name: "CIGaussianBlur");
+        filter.setValue(tmp, forKey: kCIInputImageKey);
+        filter.setValue(0.15, forKey: "inputRadius");
+        
+        let filteredImageData = filter.valueForKey(kCIOutputImageKey) as CIImage;
+        
+        let lightenFilter = CIFilter(name: "CIMaximumCompositing");
+        
+        lightenFilter.setValue(coreImage, forKey: "inputBackgroundImage");
+        lightenFilter.setValue(filteredImageData, forKey: kCIInputImageKey);
+        
+        let filteredImageData_2 = lightenFilter.valueForKey(kCIOutputImageKey) as CIImage;
+        let filteredImageRef_2 = ciContext.createCGImage(filteredImageData_2, fromRect: filteredImageData_2.extent());
+
+        previousImage = CIImage(CGImage: filteredImageRef_2);
+
+        return UIImage(CGImage: filteredImageRef_2);
+    }
+    else
+    {
+        let filter = CIFilter(name: "CIGaussianBlur");
+        filter.setValue(coreImage, forKey: kCIInputImageKey);
+        filter.setValue(0.5, forKey: "inputRadius");
+        
+        let filteredImageData = filter.valueForKey(kCIOutputImageKey) as CIImage;
+        
+        let filteredImageRef = ciContext.createCGImage(filteredImageData, fromRect: filteredImageData.extent());
+        
+        previousImage = CIImage(CGImage: filteredImageRef);
+        
+        return UIImage(CGImage: filteredImageRef);
+    }
+*/
 }

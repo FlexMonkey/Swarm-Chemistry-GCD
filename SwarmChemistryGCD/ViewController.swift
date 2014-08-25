@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController
 {
     
+    var selectedGenomeIndex : Int = 0;
+    
     let genomes : Array<SwarmGenome> = [Constants.genomeOne, Constants.genomeTwo, Constants.genomeThree, Constants.genomeFour];
 
     var image : UIImage?;

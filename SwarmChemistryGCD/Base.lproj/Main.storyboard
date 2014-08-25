@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
-        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6tJ-qd-Kci">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6tJ-qd-Kci">
                                 <rect key="frame" x="60" y="60" width="480" height="480"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="1024" id="AQT-BD-v6V"/>
@@ -38,32 +37,7 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6tJ-qd-Kci" secondAttribute="bottom" constant="60" id="Hd7-Qq-DD0"/>
-                            <constraint firstItem="6tJ-qd-Kci" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="K6l-LT-uUu"/>
-                            <constraint firstItem="6tJ-qd-Kci" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="RsY-bB-Q2j"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6tJ-qd-Kci" secondAttribute="trailing" id="USM-ZQ-c3O"/>
-                            <constraint firstItem="6tJ-qd-Kci" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="VBT-VI-F28"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6tJ-qd-Kci" secondAttribute="trailing" constant="40" id="a2C-Tl-FWZ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6tJ-qd-Kci" secondAttribute="bottom" id="h7P-7z-Y5h"/>
-                            <constraint firstItem="6tJ-qd-Kci" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="mz8-VP-UTG"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="K6l-LT-uUu"/>
-                                <exclude reference="USM-ZQ-c3O"/>
-                                <exclude reference="VBT-VI-F28"/>
-                                <exclude reference="h7P-7z-Y5h"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=regular">
-                            <mask key="constraints">
-                                <include reference="K6l-LT-uUu"/>
-                                <include reference="USM-ZQ-c3O"/>
-                                <include reference="VBT-VI-F28"/>
-                                <include reference="h7P-7z-Y5h"/>
-                            </mask>
-                        </variation>
+                        <variation key="widthClass=regular"/>
                     </view>
                     <connections>
                         <outlet property="uiImageView" destination="6tJ-qd-Kci" id="gQN-8P-t06"/>

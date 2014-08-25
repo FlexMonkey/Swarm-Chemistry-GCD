@@ -60,11 +60,11 @@ import Foundation
         dx2 += ax;
         dy2 += ay;
         
-        var d : Double = dx2 * dx2 + dy2 * dy2;
+        var d : Double = hypot(dx2, dy2);
         
         if d > maxMove * maxMove
         {
-            var normalizationFactor : Double = maxMove / sqrt(d);
+            var normalizationFactor : Double = maxMove / d;
             dx2 *= normalizationFactor;
             dy2 *= normalizationFactor;
         }

@@ -9,12 +9,12 @@
 import Foundation
 import UIKit;
 
-public struct SwarmGenome
+public class SwarmGenome
 {
     public var color : UIColor;
     
-    public var normalSpeed : Double = 2.5;
-    public var maximumSpeed : Double = 5.0;
+    public var normalSpeed : Double = 1;
+    public var maximumSpeed : Double = 2;
     public var radius : Double;
     public var c1_cohesion : Double;
     public var c2_alignment : Double;

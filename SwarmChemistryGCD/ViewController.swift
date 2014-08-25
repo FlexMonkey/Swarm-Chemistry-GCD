@@ -22,6 +22,7 @@ class ViewController: UIViewController
     @IBOutlet weak var uiImageView: UIImageView!
     @IBOutlet var propertyButtonBar: UISegmentedControl!
     @IBOutlet var propertyValueSlider: UISlider!
+    @IBOutlet var genomeSelectionButtonBar: UISegmentedControl!
     
     override func viewDidLoad()
     {
@@ -87,6 +88,12 @@ class ViewController: UIViewController
     }
     
     // event handlers
+    
+    @IBAction func genomeSelectionButtonBarChangeHandler(sender: AnyObject)
+    {
+        selectedGenomeIndex = genomeSelectionButtonBar.selectedSegmentIndex;
+        setPropertySliderValue();
+    }
     
     @IBAction func propertyButtonBarChangeHandler(sender: AnyObject)
     {

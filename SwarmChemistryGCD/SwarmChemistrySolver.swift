@@ -18,7 +18,8 @@ func solveSwarmChemistry(swarmMembers :  NSMutableArray)
     {
         var swarmMember : SwarmMember = swarmMembers[i] as SwarmMember;
         
-        var neighbours : NSMutableArray = NSMutableArray();
+        var neighbourCount : Int = 0;
+        var neighbours : NSMutableArray = NSMutableArray(capacity: swarmMembers.count);
         var localCentreX : Double = 0;
         var localCentreY : Double = 0;
         var localDx : Double = 0;
@@ -42,7 +43,7 @@ func solveSwarmChemistry(swarmMembers :  NSMutableArray)
                     candidateNeighbour.distance = 0.0001
                 }
                 
-                neighbours.addObject(candidateNeighbour);
+                neighbours[neighbourCount++] = candidateNeighbour;
                 
                 localCentreX = localCentreX + candidateNeighbour.x;
                 localCentreY = localCentreY + candidateNeighbour.y;
@@ -67,7 +68,7 @@ func solveSwarmChemistry(swarmMembers :  NSMutableArray)
         tempAy = tempAy + (localDy - swarmMember.dy) * swarmMember.genome.c2_alignment;
         
         
-        for var k = 0; k < neighbours.count; k++
+        for var k = 0; k < neighbourCount; k++
         {
             var neighbour : SwarmMember = neighbours[k] as SwarmMember;
             var foo = neighbour.distance * swarmMember.genome.c3_seperation

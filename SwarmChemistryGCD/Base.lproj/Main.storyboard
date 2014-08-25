@@ -58,11 +58,26 @@
                                     <action selector="propertyButtonBarChangeHandler:" destination="BYZ-38-t0r" eventType="valueChanged" id="jcX-Rv-Xv7"/>
                                 </connections>
                             </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FeM-rL-nmv">
+                                <rect key="frame" x="60" y="6" width="480" height="29"/>
+                                <segments>
+                                    <segment title="Genome One (Cyan)"/>
+                                    <segment title="Genome Two (Red)"/>
+                                    <segment title="Genome Three (Blue)"/>
+                                    <segment title="Genome Four (Yellow)"/>
+                                </segments>
+                                <connections>
+                                    <action selector="genomeSelectionButtonBarChangeHandler:" destination="BYZ-38-t0r" eventType="valueChanged" id="SfR-1j-AaK"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CPt-Hn-QxE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="3Z1-J3-q8F"/>
+                            <constraint firstItem="FeM-rL-nmv" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="20" id="3tV-JD-vER"/>
                             <constraint firstItem="hWV-gJ-5dK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="44" id="8Qp-dY-LFg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FeM-rL-nmv" secondAttribute="trailing" constant="20" id="Ies-zD-pv4"/>
+                            <constraint firstItem="FeM-rL-nmv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="K1D-at-xFv"/>
                             <constraint firstItem="hWV-gJ-5dK" firstAttribute="top" secondItem="CPt-Hn-QxE" secondAttribute="bottom" constant="20" id="Mq4-Wg-Euy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hWV-gJ-5dK" secondAttribute="trailing" constant="44" id="Re0-Y3-Ge1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CPt-Hn-QxE" secondAttribute="trailing" constant="20" id="aO2-GJ-G5y"/>
@@ -70,6 +85,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="genomeSelectionButtonBar" destination="FeM-rL-nmv" id="kWY-ze-J89"/>
                         <outlet property="propertyButtonBar" destination="CPt-Hn-QxE" id="6Z4-Ju-DMp"/>
                         <outlet property="propertyValueSlider" destination="hWV-gJ-5dK" id="izU-X5-96k"/>
                         <outlet property="uiImageView" destination="6tJ-qd-Kci" id="gQN-8P-t06"/>

@@ -8,6 +8,8 @@
 //  Swarm Chemistry based on work by Hiroki Sayama
 //  http://bingweb.binghamton.edu/~sayama/SwarmChemistry/
 //
+//  A million thanks to Joseph Lord for tips on using Arrays and structs
+//  http://blog.human-friendly.com/optimising-swift-with-functional-style-50x-speed-boost-from-changing-1-keyword
 
 import Foundation
 
@@ -18,9 +20,7 @@ func solveSwarmChemistry(swarmMembers : [SwarmMember]) -> [SwarmMember]
     for var i : Int = 0; i < Constants.COUNT; i++
     {
         var swarmMember : SwarmMember = swarmMembers[i];
-        
-        //distancesvar neighbourCount : Int = 0;
-        //var neighbours = swarmMembers;
+ 
         var localCentreX : Double = 0;
         var localCentreY : Double = 0;
         var localDx : Double = 0;
@@ -31,17 +31,14 @@ func solveSwarmChemistry(swarmMembers : [SwarmMember]) -> [SwarmMember]
         
         var distances = [Distance]();
         
-        for var j : Int = 0; j < Constants.COUNT; j++
+        for candidateNeighbour in swarmMembers
         {
-            let candidateNeighbour = swarmMembers[j];
-            
             let distance = hypot(swarmMember.x - candidateNeighbour.x, swarmMember.y - candidateNeighbour.y)
             
             if distance < swarmMember.genome.radius
             {
                 let candidateNeighbourDistance = max(distance, 0.0001);
-            
-                //neighbours[neighbourCount++] = candidateNeighbour;
+  
                 distances.append(Distance(distance: candidateNeighbourDistance, x: candidateNeighbour.x, y: candidateNeighbour.y));
                 
                 localCentreX = localCentreX + candidateNeighbour.x;
@@ -66,10 +63,9 @@ func solveSwarmChemistry(swarmMembers : [SwarmMember]) -> [SwarmMember]
         tempAy = tempAy + (localDy - swarmMember.dy) * swarmMember.genome.c2_alignment;
         
         
-        for var k = 0; k < distances.count; k++
+        for neighbour in distances
         {
-            var neighbour = distances[k];
-            var foo = distances[k].distance * swarmMember.genome.c3_seperation
+            var foo = neighbour.distance * swarmMember.genome.c3_seperation
             
             tempAx = tempAx + Double(swarmMember.x - neighbour.x) / foo;
             tempAy = tempAy + Double(swarmMember.y - neighbour.y) / foo;

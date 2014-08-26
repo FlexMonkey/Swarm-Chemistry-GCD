@@ -42,19 +42,21 @@ private class GCD {
 		// Could use return dispatch_get_global_queue(+qos_class_main(), 0)
 	}
 	class func userInteractiveQueue() -> dispatch_queue_t {
-		return dispatch_get_global_queue(+QOS_CLASS_USER_INTERACTIVE, 0)
+        //return dispatch_get_global_queue(+QOS_CLASS_USER_INTERACTIVE, 0)
+        return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
 	}
 	class func userInitiatedQueue() -> dispatch_queue_t {
-		 return dispatch_get_global_queue(+QOS_CLASS_USER_INITIATED, 0)
+        //return dispatch_get_global_queue(+QOS_CLASS_USER_INITIATED, 0)
+        return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
 	}
 	class func defaultQueue() -> dispatch_queue_t {
-		return dispatch_get_global_queue(+QOS_CLASS_DEFAULT, 0)
+		return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 	}
 	class func utilityQueue() -> dispatch_queue_t {
-		return dispatch_get_global_queue(+QOS_CLASS_UTILITY, 0)
+		return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0)
 	}
 	class func backgroundQueue() -> dispatch_queue_t {
-		return dispatch_get_global_queue(+QOS_CLASS_BACKGROUND, 0)
+		return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)
 	}
 }
 
@@ -65,13 +67,14 @@ public class Async {
 	/* dispatch_async() */
 
 	private class func async(block: dispatch_block_t, inQueue queue: dispatch_queue_t) -> DispatchBlock {
-		// Create a new block (Qos Class) from block to allow adding a notification to it later (see DispatchBlock)
-		// Create block with the "inherit" type
-		let _block = dispatch_block_create(DISPATCH_BLOCK_INHERIT_QOS_CLASS, block)
-		// Add block to queue
-		dispatch_async(queue, _block)
-		// Wrap block in a struct since dispatch_block_t can't be extended
-		return DispatchBlock(_block)
+        // Wrap block in a struct since dispatch_block_t can't be extended and to give it a group
+		let dBlock =  DispatchBlock()
+
+        // Add block to queue
+		dispatch_group_async(dBlock.dgroup, queue, dBlock.cancellable(block))
+
+        return dBlock
+		
 	}
 	class func main(block: dispatch_block_t) -> DispatchBlock {
 		return Async.async(block, inQueue: GCD.mainQueue())
@@ -105,9 +108,14 @@ public class Async {
 	}
 	private class func at(time: dispatch_time_t, block: dispatch_block_t, inQueue queue: dispatch_queue_t) -> DispatchBlock {
 		// See Async.async() for comments
-		let _block = dispatch_block_create(DISPATCH_BLOCK_INHERIT_QOS_CLASS, block)
-		dispatch_after(time, queue, _block)
-		return DispatchBlock(_block)
+        let dBlock = DispatchBlock()
+        dispatch_group_enter(dBlock.dgroup)
+        dispatch_after(time, queue){
+            let cancellableBlock = dBlock.cancellable(block)
+            cancellableBlock() // Compiler crashed in Beta6 when I just did dBlock.cancellable(block) directly.
+            dispatch_group_leave(dBlock.dgroup)
+        }
+		return dBlock
 	}
 	class func main(#after: Double, block: dispatch_block_t) -> DispatchBlock {
 		return Async.after(after, block: block, inQueue: GCD.mainQueue())
@@ -134,23 +142,33 @@ public class Async {
 
 
 // Wrapper since non-nominal type 'dispatch_block_t' cannot be extended (extension dispatch_block_t {})
-public struct DispatchBlock {
-	
-	private let block: dispatch_block_t
-	
-	init(_ block: dispatch_block_t) {
-		self.block = block
-	}
-
+public class DispatchBlock {
+    
+    private let dgroup: dispatch_group_t = dispatch_group_create()
+    private var isCancelled = false
 
 	/* dispatch_async() */
 	
 	private func chain(block chainingBlock: dispatch_block_t, runInQueue queue: dispatch_queue_t) -> DispatchBlock {
 		// See Async.async() for comments
-		let _chainingBlock = dispatch_block_create(DISPATCH_BLOCK_INHERIT_QOS_CLASS, chainingBlock)
-		dispatch_block_notify(self.block, queue, _chainingBlock)
-		return DispatchBlock(_chainingBlock)
+        let dBlock = DispatchBlock()
+        dispatch_group_enter(dBlock.dgroup)
+        dispatch_group_notify(self.dgroup, queue) {
+            let cancellableChainingBlock = self.cancellable(chainingBlock)
+            cancellableChainingBlock()
+            dispatch_group_leave(dBlock.dgroup)
+        }
+		return dBlock
 	}
+    
+    private func cancellable(blockToWrap: dispatch_block_t) -> dispatch_block_t {
+        weak var weakSelf = self
+        return {
+            if weakSelf == nil || !weakSelf!.isCancelled {
+                blockToWrap()
+            }
+        }
+    }
 	
 	func main(chainingBlock: dispatch_block_t) -> DispatchBlock {
 		return chain(block: chainingBlock, runInQueue: GCD.mainQueue())
@@ -178,25 +196,25 @@ public struct DispatchBlock {
 	/* dispatch_after() */
 
 	private func after(seconds: Double, block chainingBlock: dispatch_block_t, runInQueue queue: dispatch_queue_t) -> DispatchBlock {
-		
-		// Create a new block (Qos Class) from block to allow adding a notification to it later (see DispatchBlock)
-		// Create block with the "inherit" type
-		let _chainingBlock = dispatch_block_create(DISPATCH_BLOCK_INHERIT_QOS_CLASS, chainingBlock)
-		
-		// Wrap block to be called when previous block is finished
-		let chainingWrapperBlock: dispatch_block_t = {
-			// Calculate time from now
-			let nanoSeconds = Int64(seconds * Double(NSEC_PER_SEC))
-			let time = dispatch_time(DISPATCH_TIME_NOW, nanoSeconds)
-			dispatch_after(time, queue, _chainingBlock)
-		}
-		// Create a new block (Qos Class) from block to allow adding a notification to it later (see DispatchBlock)
-		// Create block with the "inherit" type
-		let _chainingWrapperBlock = dispatch_block_create(DISPATCH_BLOCK_INHERIT_QOS_CLASS, chainingWrapperBlock)
+        
+        var dBlock = DispatchBlock()
+        
+        dispatch_group_notify(self.dgroup, queue)
+        {
+            dispatch_group_enter(dBlock.dgroup)
+            let nanoSeconds = Int64(seconds * Double(NSEC_PER_SEC))
+            let time = dispatch_time(DISPATCH_TIME_NOW, nanoSeconds)
+            dispatch_after(time, queue) {
+                let cancellableChainingBlock = self.cancellable(chainingBlock)
+                cancellableChainingBlock()
+                dispatch_group_leave(dBlock.dgroup)
+            }
+            
+        }
 		// Add block to queue *after* previous block is finished
-		dispatch_block_notify(self.block, queue, _chainingWrapperBlock)
+
 		// Wrap block in a struct since dispatch_block_t can't be extended
-		return DispatchBlock(_chainingBlock)
+		return dBlock
 	}
 	func main(#after: Double, block: dispatch_block_t) -> DispatchBlock {
 		return self.after(after, block: block, runInQueue: GCD.mainQueue())
@@ -223,10 +241,12 @@ public struct DispatchBlock {
 
 	/* cancel */
 
-	func cancel() {
-		dispatch_block_cancel(block)
-	}
-	
+     func cancel() {
+        // I don't think that syncronisation is necessary. Any combination of multiple access
+        // should result in zero or negagive. If the read happens with a positive value during
+        // write that is just like if it read before the write. No values are invalid as such.
+        isCancelled = true
+    }
 
 	/* wait */
 
@@ -235,29 +255,32 @@ public struct DispatchBlock {
 		if seconds != 0.0 {
 			let nanoSeconds = Int64(seconds * Double(NSEC_PER_SEC))
 			let time = dispatch_time(DISPATCH_TIME_NOW, nanoSeconds)
-			dispatch_block_wait(block, time)
+            dispatch_group_wait(dgroup, time)
 		} else {
-			dispatch_block_wait(block, DISPATCH_TIME_FOREVER)
+			dispatch_group_wait(dgroup, DISPATCH_TIME_FOREVER)
 		}
 	}
 }
 
 // Convenience
-extension qos_class_t {
+// extension qos_class_t {
+//
+//	// Calculated property
+//	var description: String {
+//		get {
+//			switch +self {
+//				case +qos_class_main(): return "Main"
+//				case +QOS_CLASS_USER_INTERACTIVE: return "User Interactive"
+//				case +QOS_CLASS_USER_INITIATED: return "User Initiated"
+//				case +QOS_CLASS_DEFAULT: return "Default"
+//				case +QOS_CLASS_UTILITY: return "Utility"
+//				case +QOS_CLASS_BACKGROUND: return "Background"
+//				case +QOS_CLASS_UNSPECIFIED: return "Unspecified"
+//				default: return "Unknown"
+//			}
+//		}
+//	}
+//}
 
-	// Calculated property
-	var description: String {
-		get {
-			switch +self {
-				case +qos_class_main(): return "Main"
-				case +QOS_CLASS_USER_INTERACTIVE: return "User Interactive"
-				case +QOS_CLASS_USER_INITIATED: return "User Initiated"
-				case +QOS_CLASS_DEFAULT: return "Default"
-				case +QOS_CLASS_UTILITY: return "Utility"
-				case +QOS_CLASS_BACKGROUND: return "Background"
-				case +QOS_CLASS_UNSPECIFIED: return "Unspecified"
-				default: return "Unknown"
-			}
-		}
-	}
-}
+
+

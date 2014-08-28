@@ -16,7 +16,7 @@
 		3E8F32A819A67EE900CC7E7D /* SwarmGenome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F32A719A67EE900CC7E7D /* SwarmGenome.swift */; };
 		3E8F32AC19A680E400CC7E7D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F32AB19A680E400CC7E7D /* Constants.swift */; };
 		3E8F32AF19A6819D00CC7E7D /* SwarmChemistrySolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F32AE19A6819D00CC7E7D /* SwarmChemistrySolver.swift */; };
-		BEB7BCF819A8AE8100CE4E77 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7BCF719A8AE8100CE4E77 /* Async.swift */; };
+		BE53266E19AFAED700AA9953 /* AsyncLegacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE53266D19AFAED700AA9953 /* AsyncLegacy.swift */; };
 		BEB7BCFA19A8B1AC00CE4E77 /* SwarmChemistryRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB7BCF919A8B1AC00CE4E77 /* SwarmChemistryRenderer.swift */; };
 		BEF2C6D419AB5C5F00C798B1 /* Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF2C6D319AB5C5F00C798B1 /* Distance.swift */; };
 /* End PBXBuildFile section */
@@ -45,7 +45,7 @@
 		3E8F32A719A67EE900CC7E7D /* SwarmGenome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwarmGenome.swift; sourceTree = "<group>"; };
 		3E8F32AB19A680E400CC7E7D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3E8F32AE19A6819D00CC7E7D /* SwarmChemistrySolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwarmChemistrySolver.swift; sourceTree = "<group>"; };
-		BEB7BCF719A8AE8100CE4E77 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
+		BE53266D19AFAED700AA9953 /* AsyncLegacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncLegacy.swift; sourceTree = "<group>"; };
 		BEB7BCF919A8B1AC00CE4E77 /* SwarmChemistryRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwarmChemistryRenderer.swift; sourceTree = "<group>"; };
 		BEF2C6D319AB5C5F00C798B1 /* Distance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Distance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,7 +149,7 @@
 		BEB7BCF619A8AE4D00CE4E77 /* async */ = {
 			isa = PBXGroup;
 			children = (
-				BEB7BCF719A8AE8100CE4E77 /* Async.swift */,
+				BE53266D19AFAED700AA9953 /* AsyncLegacy.swift */,
 			);
 			name = async;
 			sourceTree = "<group>";
@@ -258,7 +258,7 @@
 				3E8F32AC19A680E400CC7E7D /* Constants.swift in Sources */,
 				3E8F328A19A67DA000CC7E7D /* ViewController.swift in Sources */,
 				3E8F32A819A67EE900CC7E7D /* SwarmGenome.swift in Sources */,
-				BEB7BCF819A8AE8100CE4E77 /* Async.swift in Sources */,
+				BE53266E19AFAED700AA9953 /* AsyncLegacy.swift in Sources */,
 				3E8F32A619A67EC400CC7E7D /* SwarmMember.swift in Sources */,
 				3E8F32AF19A6819D00CC7E7D /* SwarmChemistrySolver.swift in Sources */,
 				3E8F328819A67DA000CC7E7D /* AppDelegate.swift in Sources */,
@@ -329,11 +329,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -366,7 +366,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -382,6 +382,7 @@
 				INFOPLIST_FILE = SwarmChemistryGCD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Debug;
 		};
